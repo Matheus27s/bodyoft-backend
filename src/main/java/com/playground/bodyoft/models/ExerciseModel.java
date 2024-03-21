@@ -33,6 +33,7 @@ public class ExerciseModel implements Serializable {
    private String trainingDay;
    private boolean hasDone;
    private String videoId;
+   private String groupDay;
 
    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
    @ManyToOne(optional = false, fetch = FetchType.LAZY)

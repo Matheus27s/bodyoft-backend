@@ -8,6 +8,7 @@ import com.playground.bodyoft.services.ExerciseService;
 import com.playground.bodyoft.services.exceptions.EntityNotFoundException;
 import com.playground.bodyoft.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,7 +76,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public List<ExerciseModel> findAllExerciseByAssessment(Specification<ExerciseModel> spec) {
-        return exerciseRepository.findAll(spec);
+        return exerciseRepository.findAll(spec, Sort.by(Sort.Direction.ASC, "groupDay"));
     }
 
     @Override
